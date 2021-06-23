@@ -2,128 +2,128 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Home</title>
-    <link>https://mk4dir.github.io/tags/</link>
+    <link>https://kadirkarakoc.com/tags/</link>
     <description>Recent content in Tags on Home</description>
     <image>
-      <url>https://mk4dir.github.io/papermod-cover.png</url>
-      <link>https://mk4dir.github.io/papermod-cover.png</link>
+      <url>https://kadirkarakoc.com/papermod-cover.png</url>
+      <link>https://kadirkarakoc.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mk4dir.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://kadirkarakoc.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PaperMod</title>
-      <link>https://mk4dir.github.io/tags/papermod/</link>
+      <link>https://kadirkarakoc.com/tags/papermod/</link>
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/papermod/</guid>
+      <guid>https://kadirkarakoc.com/tags/papermod/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>https://mk4dir.github.io/tags/k8s/</link>
+      <link>https://kadirkarakoc.com/tags/k8s/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/k8s/</guid>
+      <guid>https://kadirkarakoc.com/tags/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernetes</title>
-      <link>https://mk4dir.github.io/tags/kubernetes/</link>
+      <link>https://kadirkarakoc.com/tags/kubernetes/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/kubernetes/</guid>
+      <guid>https://kadirkarakoc.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>container</title>
-      <link>https://mk4dir.github.io/tags/container/</link>
+      <link>https://kadirkarakoc.com/tags/container/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/container/</guid>
+      <guid>https://kadirkarakoc.com/tags/container/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://mk4dir.github.io/tags/docker/</link>
+      <link>https://kadirkarakoc.com/tags/docker/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/docker/</guid>
+      <guid>https://kadirkarakoc.com/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>https://mk4dir.github.io/tags/css/</link>
+      <link>https://kadirkarakoc.com/tags/css/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/css/</guid>
+      <guid>https://kadirkarakoc.com/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html</title>
-      <link>https://mk4dir.github.io/tags/html/</link>
+      <link>https://kadirkarakoc.com/tags/html/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/html/</guid>
+      <guid>https://kadirkarakoc.com/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>https://mk4dir.github.io/tags/markdown/</link>
+      <link>https://kadirkarakoc.com/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/markdown/</guid>
+      <guid>https://kadirkarakoc.com/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>https://mk4dir.github.io/tags/themes/</link>
+      <link>https://kadirkarakoc.com/tags/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/themes/</guid>
+      <guid>https://kadirkarakoc.com/tags/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>privacy</title>
-      <link>https://mk4dir.github.io/tags/privacy/</link>
+      <link>https://kadirkarakoc.com/tags/privacy/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/privacy/</guid>
+      <guid>https://kadirkarakoc.com/tags/privacy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shortcodes</title>
-      <link>https://mk4dir.github.io/tags/shortcodes/</link>
+      <link>https://kadirkarakoc.com/tags/shortcodes/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/shortcodes/</guid>
+      <guid>https://kadirkarakoc.com/tags/shortcodes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>text</title>
-      <link>https://mk4dir.github.io/tags/text/</link>
+      <link>https://kadirkarakoc.com/tags/text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/text/</guid>
+      <guid>https://kadirkarakoc.com/tags/text/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emoji</title>
-      <link>https://mk4dir.github.io/tags/emoji/</link>
+      <link>https://kadirkarakoc.com/tags/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mk4dir.github.io/tags/emoji/</guid>
+      <guid>https://kadirkarakoc.com/tags/emoji/</guid>
       <description></description>
     </item>
     
