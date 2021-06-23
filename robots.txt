@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://mk4dir.github.io/sitemap.xml
