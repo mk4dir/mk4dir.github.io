@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kadirkarakoc.com/posts/papermod/papermod-installation/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://kadirkarakoc.com/posts/kubernetes/kn1/</loc>
     <lastmod>2019-06-17T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,49 +11,16 @@
     <loc>https://kadirkarakoc.com/posts/kubernetes/kn0/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kadirkarakoc.com/posts/papermod/papermod-features/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/markdown-syntax.fr/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/markdown-syntax.fa/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/papermod/papermod-faq/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/papermod/papermod-icons/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/papermod/papermod-variables/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/papermod/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/series/papermod/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/papermod/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/series/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://kadirkarakoc.com/categories/</loc>
     <lastmod>2019-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/tags/k8s/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/series/kubernetes/</loc>
     <lastmod>2019-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/tags/kubernetes/</loc>
@@ -65,7 +29,13 @@
     <loc>https://kadirkarakoc.com/categories/kubernetes/</loc>
     <lastmod>2019-06-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kadirkarakoc.com/series/kubernetes/</loc>
+    <loc>https://kadirkarakoc.com/posts/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/series/</loc>
+    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/tags/</loc>
     <lastmod>2019-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/tags/container/</loc>
@@ -80,60 +50,8 @@
     <loc>https://kadirkarakoc.com/categories/docker/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kadirkarakoc.com/tags/css/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/html/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/markdown/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/markdown-syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/categories/syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/categories/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/series/themes-guide/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/privacy/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/rich-content/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/shortcodes/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/placeholder-text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/math-typesetting/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/emoji/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/emoji-support/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/archives.fr/</loc>
-  </url><url>
     <loc>https://kadirkarakoc.com/archives/</loc>
   </url><url>
     <loc>https://kadirkarakoc.com/search/</loc>
-  </url><url>
-    <loc>https://kadirkarakoc.com/search.fr/</loc>
   </url>
 </urlset>

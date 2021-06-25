@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on Home</title>
+    <title>Categories on Kadir Karakoc&#39;s Blog</title>
     <link>https://kadirkarakoc.com/categories/</link>
-    <description>Recent content in Categories on Home</description>
+    <description>Recent content in Categories on Kadir Karakoc&#39;s Blog</description>
     <image>
       <url>https://kadirkarakoc.com/papermod-cover.png</url>
       <link>https://kadirkarakoc.com/papermod-cover.png</link>
@@ -25,24 +25,6 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kadirkarakoc.com/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>syntax</title>
-      <link>https://kadirkarakoc.com/categories/syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/categories/syntax/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>https://kadirkarakoc.com/categories/themes/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/categories/themes/</guid>
       <description></description>
     </item>
     

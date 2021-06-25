@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Home</title>
+    <title>Tags on Kadir Karakoc&#39;s Blog</title>
     <link>https://kadirkarakoc.com/tags/</link>
-    <description>Recent content in Tags on Home</description>
+    <description>Recent content in Tags on Kadir Karakoc&#39;s Blog</description>
     <image>
       <url>https://kadirkarakoc.com/papermod-cover.png</url>
       <link>https://kadirkarakoc.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://kadirkarakoc.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>PaperMod</title>
-      <link>https://kadirkarakoc.com/tags/papermod/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/papermod/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 17 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://kadirkarakoc.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>k8s</title>
       <link>https://kadirkarakoc.com/tags/k8s/</link>
@@ -52,78 +43,6 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kadirkarakoc.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>css</title>
-      <link>https://kadirkarakoc.com/tags/css/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>html</title>
-      <link>https://kadirkarakoc.com/tags/html/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>markdown</title>
-      <link>https://kadirkarakoc.com/tags/markdown/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>https://kadirkarakoc.com/tags/themes/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>privacy</title>
-      <link>https://kadirkarakoc.com/tags/privacy/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/privacy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://kadirkarakoc.com/tags/shortcodes/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>text</title>
-      <link>https://kadirkarakoc.com/tags/text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/text/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emoji</title>
-      <link>https://kadirkarakoc.com/tags/emoji/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kadirkarakoc.com/tags/emoji/</guid>
       <description></description>
     </item>
     
