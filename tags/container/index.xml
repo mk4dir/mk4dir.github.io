@@ -9,13 +9,112 @@
       <link>https://kadirkarakoc.com/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://kadirkarakoc.com/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://kadirkarakoc.com/tags/container/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docker | [0] What is it?</title>
-      <link>https://kadirkarakoc.com/posts/docker/dn0/</link>
-      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      <title>Docker[11] | Persisting Data Using Volumes</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn11/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://kadirkarakoc.com/posts/docker/dn0/</guid>
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn11/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[10] | Networking Fundamentals</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn10/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn10/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[9] | Managing Log Files</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn9/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn9/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[8] | Naming And Inspecting</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn8/</link>
+      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn8/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[7] | Docker Build ignore Files</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn7/</link>
+      <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn7/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[6] | Building Images with Dockerfile</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn6/</link>
+      <pubDate>Sat, 17 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn6/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[5] | Building Images Interactively</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn5/</link>
+      <pubDate>Fri, 16 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn5/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[4] | Docker Images And Layers</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn4/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn4/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[3] | Interacting with Containers</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn3/</link>
+      <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn3/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[2] | Run a Web App with Docker</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn2/</link>
+      <pubDate>Tue, 13 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn2/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[1] | Run First Container</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn1/</link>
+      <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn1/</guid>
+      <description>This Serie contains Docker Notes.</description>
+    </item>
+    
+    <item>
+      <title>Docker[0] | &#39;What is it?&#39;</title>
+      <link>https://kadirkarakoc.com/posts/docker-notes/dn0/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/docker-notes/dn0/</guid>
       <description>This Serie contains Docker Notes.</description>
     </item>
     

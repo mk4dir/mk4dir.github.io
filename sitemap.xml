@@ -2,55 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kadirkarakoc.com/posts/kubernetes/kn1/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn11/</loc>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kadirkarakoc.com/posts/docker/dn0/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn10/</loc>
+    <lastmod>2021-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kadirkarakoc.com/posts/kubernetes/kn0/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn9/</loc>
+    <lastmod>2021-07-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn8/</loc>
+    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn7/</loc>
+    <lastmod>2021-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn6/</loc>
+    <lastmod>2021-07-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn5/</loc>
+    <lastmod>2021-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn4/</loc>
+    <lastmod>2021-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn3/</loc>
+    <lastmod>2021-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn2/</loc>
+    <lastmod>2021-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn1/</loc>
+    <lastmod>2021-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/docker-notes/dn0/</loc>
+    <lastmod>2021-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/gnulinux/gln2/</loc>
+    <lastmod>2021-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/gnulinux/gln1/</loc>
+    <lastmod>2021-05-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/gnulinux/gln0/</loc>
+    <lastmod>2021-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/categories/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/k8s/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/series/kubernetes/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/kubernetes/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/categories/kubernetes/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/posts/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/series/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://kadirkarakoc.com/tags/</loc>
-    <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/tags/container/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/series/docker/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/tags/docker/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/categories/docker/</loc>
-    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/</loc>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/posts/</loc>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/series/</loc>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kadirkarakoc.com/tags/</loc>
+    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kadirkarakoc.com/archives/</loc>
+  </url><url>
+    <loc>https://kadirkarakoc.com/tags/gnu/linux/</loc>
+  </url><url>
+    <loc>https://kadirkarakoc.com/series/gnu/linux/</loc>
+  </url><url>
+    <loc>https://kadirkarakoc.com/categories/gnu/linux/</loc>
   </url><url>
     <loc>https://kadirkarakoc.com/search/</loc>
   </url>

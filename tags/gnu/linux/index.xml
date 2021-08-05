@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GNU/Linux on Kadir Karakoc&#39;s Blog</title>
+    <link>https://kadirkarakoc.com/tags/gnu/linux/</link>
+    <description>Recent content in GNU/Linux on Kadir Karakoc&#39;s Blog</description>
+    <image>
+      <url>https://kadirkarakoc.com/papermod-cover.png</url>
+      <link>https://kadirkarakoc.com/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kadirkarakoc.com/tags/gnu/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GNU/Linux[2] | &#39;What is it?&#39;</title>
+      <link>https://kadirkarakoc.com/posts/gnulinux/gln2/</link>
+      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/gnulinux/gln2/</guid>
+      <description>This Serie contains GNU/Linux Notes.</description>
+    </item>
+    
+    <item>
+      <title>GNU/Linux[1] | Nedir? Part-II</title>
+      <link>https://kadirkarakoc.com/posts/gnulinux/gln1/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/gnulinux/gln1/</guid>
+      <description>This Serie contains GNU/Linux Notes.</description>
+    </item>
+    
+    <item>
+      <title>GNU/Linux[0] | Nedir? Part-I</title>
+      <link>https://kadirkarakoc.com/posts/gnulinux/gln0/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://kadirkarakoc.com/posts/gnulinux/gln0/</guid>
+      <description>This Serie contains GNU/Linux Notes.</description>
+    </item>
+    
+  </channel>
+</rss>
