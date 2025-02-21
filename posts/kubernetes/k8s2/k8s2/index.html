@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes[2] | Kurulum |  </title>
+
+    
+
+<link rel="canonical" href="http://www.karakoc.xyz/posts/kubernetes/k8s2/k8s2/" />
+
+
+
+<meta name="author" content="Kadir Karakoc" />
+<meta name="description" content="Kubernetes 0 Swap disable et (Kubernetes, swap&rsquo;ın devre dışı olmasını gerektirir çünkü node&rsquo;lar üzerinde yüksek performans ve kaynak kontrolü sağlamak için swap kullanmak önerilmez.) swapoff -a Google apt repository key ekle curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - Kubernetes apt repository i ekle `sudo bash -c &ldquo;cat &amp;lt;/etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF&rdquo; Package listemizi guncelleyelim sudo apt-get update Repository deki versiyonlari daha sonra incelemek icin apt-cache ile cachleyelim apt-cache policy kubelet | head -n 20 apt-cache policy docker.io | head -n 20 Gerekli paketleri repository den makinelerimize cekelim sudo apt-get install -y docker.io kubelet kubeadm kubectl Kubelet, container runtime&#39;imiz olan docker status lerini kontrol edelim sudo systemctl status kubelet.service sudo systemctl status docker.service Sistem ayaga kalktigi zaman calisacak sekilde ayarlayalim sudo systemctl enable kubelet.service sudo systemctl enable docker.service MASTER ICIN UYGULANACAKLAR LISTESI Pod network yaratmak icin calico yaml lari indirelim wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml Inen calico.yaml dosyasinin icini inceleyelim vi calico.yaml
+" />
+
+
+<meta name="keywords" content="Kubernetes,K8s">
+
+
+
+<meta name="generator" content="Hugo 0.139.3">
+
+
+<meta property="og:url" content="http://www.karakoc.xyz/posts/kubernetes/k8s2/k8s2/">
+  <meta property="og:site_name" content=" ">
+  <meta property="og:title" content="Kubernetes[2] | Kurulum">
+  <meta property="og:description" content="Kubernetes 0 Swap disable et (Kubernetes, swap’ın devre dışı olmasını gerektirir çünkü node’lar üzerinde yüksek performans ve kaynak kontrolü sağlamak için swap kullanmak önerilmez.) swapoff -a Google apt repository key ekle curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - Kubernetes apt repository i ekle `sudo bash -c “cat &amp;lt;/etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF” Package listemizi guncelleyelim sudo apt-get update Repository deki versiyonlari daha sonra incelemek icin apt-cache ile cachleyelim apt-cache policy kubelet | head -n 20 apt-cache policy docker.io | head -n 20 Gerekli paketleri repository den makinelerimize cekelim sudo apt-get install -y docker.io kubelet kubeadm kubectl Kubelet, container runtime&#39;imiz olan docker status lerini kontrol edelim sudo systemctl status kubelet.service sudo systemctl status docker.service Sistem ayaga kalktigi zaman calisacak sekilde ayarlayalim sudo systemctl enable kubelet.service sudo systemctl enable docker.service MASTER ICIN UYGULANACAKLAR LISTESI Pod network yaratmak icin calico yaml lari indirelim wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml Inen calico.yaml dosyasinin icini inceleyelim vi calico.yaml">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-10-22T00:00:00+00:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="K8s">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kubernetes[2] | Kurulum">
+  <meta name="twitter:description" content="Kubernetes 0 Swap disable et (Kubernetes, swap’ın devre dışı olmasını gerektirir çünkü node’lar üzerinde yüksek performans ve kaynak kontrolü sağlamak için swap kullanmak önerilmez.) swapoff -a Google apt repository key ekle curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - Kubernetes apt repository i ekle `sudo bash -c “cat &amp;lt;/etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF” Package listemizi guncelleyelim sudo apt-get update Repository deki versiyonlari daha sonra incelemek icin apt-cache ile cachleyelim apt-cache policy kubelet | head -n 20 apt-cache policy docker.io | head -n 20 Gerekli paketleri repository den makinelerimize cekelim sudo apt-get install -y docker.io kubelet kubeadm kubectl Kubelet, container runtime&#39;imiz olan docker status lerini kontrol edelim sudo systemctl status kubelet.service sudo systemctl status docker.service Sistem ayaga kalktigi zaman calisacak sekilde ayarlayalim sudo systemctl enable kubelet.service sudo systemctl enable docker.service MASTER ICIN UYGULANACAKLAR LISTESI Pod network yaratmak icin calico yaml lari indirelim wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml Inen calico.yaml dosyasinin icini inceleyelim vi calico.yaml">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between max-w-[65ch] mx-auto px-4 md:px-0">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/img/mk_logo.jpg" alt="Kadir&#39;s Notes" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://www.karakoc.xyz/" class="text-lg font-semibold cursor-pointer">
+          Kadir&#39;s Notes
+        </a>
+        
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+        
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Kubernetes[2] | Kurulum">
+  <meta itemprop="description" content="Kubernetes 0 Swap disable et (Kubernetes, swap’ın devre dışı olmasını gerektirir çünkü node’lar üzerinde yüksek performans ve kaynak kontrolü sağlamak için swap kullanmak önerilmez.) swapoff -a Google apt repository key ekle curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - Kubernetes apt repository i ekle `sudo bash -c “cat &amp;lt;/etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF” Package listemizi guncelleyelim sudo apt-get update Repository deki versiyonlari daha sonra incelemek icin apt-cache ile cachleyelim apt-cache policy kubelet | head -n 20 apt-cache policy docker.io | head -n 20 Gerekli paketleri repository den makinelerimize cekelim sudo apt-get install -y docker.io kubelet kubeadm kubectl Kubelet, container runtime&#39;imiz olan docker status lerini kontrol edelim sudo systemctl status kubelet.service sudo systemctl status docker.service Sistem ayaga kalktigi zaman calisacak sekilde ayarlayalim sudo systemctl enable kubelet.service sudo systemctl enable docker.service MASTER ICIN UYGULANACAKLAR LISTESI Pod network yaratmak icin calico yaml lari indirelim wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml Inen calico.yaml dosyasinin icini inceleyelim vi calico.yaml">
+  <meta itemprop="datePublished" content="2022-09-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-10-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="469">
+  <meta itemprop="keywords" content="Kubernetes,K8s">
+
+      <header>
+        <h1 itemprop="headline">Kubernetes[2] | Kurulum</h1>
+        <p class="text-sm">
+          
+            Wednesday, Sep 7, 2022
+          
+
+          | <span>3 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Saturday, Oct 22, 2022
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Kadir Karakoc</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+    
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Kubernetes[2]%20%7c%20Kurulum&amp;url=http://www.karakoc.xyz/posts/kubernetes/k8s2/k8s2/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="" target="_blank" rel="noopener noreferrer"
+      title="Share on ">
+      <ion-icon class="group-hover:text-primary-content" name="logo-Linkedin"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <h1 id="kubernetes-0">Kubernetes 0</h1>
+<ul>
+<li>Swap disable et (Kubernetes, swap&rsquo;ın devre dışı olmasını gerektirir çünkü node&rsquo;lar üzerinde yüksek performans ve kaynak kontrolü sağlamak için swap kullanmak önerilmez.)
+<code>swapoff -a</code></li>
+<li>Google apt repository key ekle
+<code>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -</code></li>
+<li>Kubernetes apt repository i ekle
+`sudo bash -c &ldquo;cat &amp;lt;/etc/apt/sources.list.d/kubernetes.list deb <a href="https://apt.kubernetes.io/" target="_blank">https://apt.kubernetes.io/</a>
+ kubernetes-xenial main EOF&rdquo;</li>
+<li>Package listemizi guncelleyelim
+<code>sudo apt-get update</code></li>
+<li>Repository deki versiyonlari daha sonra incelemek icin apt-cache ile cachleyelim
+<code>apt-cache policy kubelet | head -n 20</code>
+<code>apt-cache policy docker.io | head -n 20</code></li>
+<li>Gerekli paketleri repository den makinelerimize cekelim
+<code>sudo apt-get install -y docker.io kubelet kubeadm kubectl</code></li>
+<li>Kubelet, container runtime'imiz olan docker status lerini kontrol edelim
+<code>sudo systemctl status kubelet.service</code>
+<code>sudo systemctl status docker.service</code></li>
+<li>Sistem ayaga kalktigi zaman calisacak sekilde ayarlayalim
+<code>sudo systemctl enable kubelet.service</code>
+<code>sudo systemctl enable docker.service</code></li>
+</ul>
+<h3 id="master-icin-uygulanacaklar-listesi">MASTER ICIN UYGULANACAKLAR LISTESI</h3>
+<ul>
+<li>Pod network yaratmak icin calico yaml lari indirelim</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+</span></span><span style="display:flex;"><span>wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+</span></span></code></pre></div><ul>
+<li>
+<p>Inen calico.yaml dosyasinin icini inceleyelim
+<code>vi calico.yaml</code></p>
+</li>
+<li>
+<p>Calico yaml file daki ip bilgisine uygun olarak, bir pod network range i belirleyerek Kubernetes cluster imizi olusturalim
+<code>sudo kubeadm init --pod-network-cidr=192.168.0.0/16</code></p>
+</li>
+<li>
+<p>API server a admin erisim yetkisine sahip bir hesap yaratalim
+<code>mkdir -p $HOME/.kube</code>
+<code>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</code>
+<code>sudo chown $(id -u):$(id -g) $HOME/.kube/config</code></p>
+</li>
+<li>
+<p>Pod network olusturmak icin gerekli yaml dosyalarini calistiralim
+<code>kubectl apply -f rbac-kdd.yaml</code>
+<code>kubectl apply -f calico.yaml</code></p>
+</li>
+<li>
+<p>Sistem specific podlari ve calico podlarini inceleyelim
+<code>kubectl get pods --all-namespaces</code></p>
+</li>
+</ul>
+
+
+
+  <blockquote>
+    <p>Not : DNS pod umuz network deploy olup calisir halene kadar aktif olmayacak</p>
+
+  </blockquote>
+
+<ul>
+<li>
+<p><code>-watch</code> flag kullanabiliriz
+<code>kubectl get pods --all-namespaces --watch</code></p>
+</li>
+<li>
+<p>Cluster da mevcut podlarin listesine bakalim - sadece master gorunecek
+<code>kubectl get nodes</code></p>
+</li>
+<li>
+<p>kubelet static pod manifestleri calistiriyor yani bir anlamda core cluster podlari calisir hale geliyor
+<code>sudo systemctl status kubelet.service</code></p>
+</li>
+<li>
+<p>kubeconfig dosyasinin bulundugu directory i inceleyelim
+<code>ls /etc/kubernetes</code></p>
+</li>
+<li>
+<p>Master daki manifestleri inceleyelim
+<code>ls /etc/kubernetes/manifests</code></p>
+</li>
+<li>
+<p>api-server ve etcd nin manifestlerini incelemek istersek&hellip;
+<code>sudo more /etc/kubernetes/manifests/etcd.yaml</code>
+<code>sudo more /etc/kubernetes/manifests/kube-apiserver.yaml</code></p>
+</li>
+</ul>
+<h2 id="node-icin-yapilacaklar-listesi">NODE ICIN YAPILACAKLAR LISTESI</h2>
+<ul>
+<li>
+<p>kubelet ve container runtime service lerini kontrol ederim
+<code>sudo systemctl status kubelet.service</code>
+<code>sudo systemctl status docker.service</code></p>
+</li>
+<li>
+<p>Sistem basladigi zaman baslayacak sekilde set edelim
+<code>sudo systemctl enable kubelet.servicesudo systemctl</code> <code>enable docker.service</code></p>
+</li>
+</ul>
+<p>Master&rsquo;da token bilgisi verilmisti eger not almadiysak su sekilde listeleyebiliriz
+<code>kubeadm token list</code></p>
+<ul>
+<li>
+<p>Yeniden bir token generate etmek istiyorsak**
+<code>kubeadm token create</code></p>
+</li>
+<li>
+<p>Master uzerinde ca cert hash bulunmakta
+<code>openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt</code>
+<code>openssl rsa -pubin -outform der &gt;&gt; /dev/null</code>
+<code>openssl dgst -sha256 -hex | sed &quot;s/^.\* //&quot;</code></p>
+</li>
+<li>
+<p>Api Server in IP adresi ya da adi, token imiz ve cert ile Node&rsquo;umuzu cluster a dahil edelim
+<code>sudo kubeadm join &lt;ip_address&gt;:6443 --token\token --discovery-token-ca-cert-hash ca\_cert\_hash</code></p>
+</li>
+<li>
+<p>Master a donecek olursak networking pod u yaratilana kadar NotReady state de gorulecektir. Pod un schedule edilip container inin indirilmesini bekliyor
+<code>kubectl get nodes</code></p>
+</li>
+<li>
+<p>Master&rsquo;da calico pod ve kube-proxy nin yeni eklenen node larda calisir hale gelmesini gozlemleyelim
+<code>kubectl get pods --all-namespaces --watch</code></p>
+</li>
+<li>
+<p>Master da eklenen node umuz status unun Ready e donmesini gozlemleriz**
+<code>kubectl get nodes</code></p>
+</li>
+</ul>
+
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 max-w-[65ch] mx-auto px-4 md:px-0 py-12">
+
+  <div>
+  
+  <p>© 2025  </p>
+  
+
+  
+  <p> </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="max-w-[65ch] mt-8 mx-auto px-4">
+  
+  
+  
+  <div>
+    <div class="mb-4 text-lg font-medium">Hello! Welcome!</div>
+
+    <div class="prose dark:prose-invert">
+      <p>This Website was created to keep notes</p>
+
+    </div>
+  </div>
+  <div class="divider divider-vertical"></div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 max-w-[65ch] mx-auto px-4 md:px-0 py-12">
+
+  <div>
+  
+  <p>© 2025  </p>
+  
+
+  
+  <p> </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+  
+    <script type="module">
+      import mediumZoom from 'https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/+esm';
+      mediumZoom('#dream-single-post-content img', {
+        background: 'oklch(var(--b1))',
+        margin: 24,
+      })
+    </script>
+  
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

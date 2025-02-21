@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker[6] | Building Images with Dockerfile |  </title>
+
+    
+
+<link rel="canonical" href="http://www.karakoc.xyz/posts/docker/d6/d6/" />
+
+
+
+<meta name="author" content="Kadir Karakoc" />
+<meta name="description" content="Building Images with Dockerfile Docker can build images automatically by reading the instructions from a Dockerfile, a text file containing all the commands, in order, needed to build a given image. Dockerfiles adhere to a specific format and use a specific set of instructions.
+Write Dockerfile In this step we shall create Dockerfile. Create a Dockerfile with following content in current directory.
+cat &gt; Dockerfile &lt;&lt; EOF FROM ubuntu:18.04 RUN apt-get update &amp;&amp; apt-get install apache2 -y &amp;&amp; apt-get clean CMD [&#34;apache2ctl&#34;, &#34;-DFOREGROUND&#34;] EOF Verify the file: cat Dockerfile Above Dockerfile content describes a Debian Jessie Docker image with Apache web server installed.
+" />
+
+
+<meta name="keywords" content="Container,Docker">
+
+
+
+<meta name="generator" content="Hugo 0.139.3">
+
+
+<meta property="og:url" content="http://www.karakoc.xyz/posts/docker/d6/d6/">
+  <meta property="og:site_name" content=" ">
+  <meta property="og:title" content="Docker[6] | Building Images with Dockerfile">
+  <meta property="og:description" content="Building Images with Dockerfile Docker can build images automatically by reading the instructions from a Dockerfile, a text file containing all the commands, in order, needed to build a given image. Dockerfiles adhere to a specific format and use a specific set of instructions.
+Write Dockerfile In this step we shall create Dockerfile. Create a Dockerfile with following content in current directory.
+cat &gt; Dockerfile &lt;&lt; EOF FROM ubuntu:18.04 RUN apt-get update &amp;&amp; apt-get install apache2 -y &amp;&amp; apt-get clean CMD [&#34;apache2ctl&#34;, &#34;-DFOREGROUND&#34;] EOF Verify the file: cat Dockerfile Above Dockerfile content describes a Debian Jessie Docker image with Apache web server installed.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-10-16T00:00:00+00:00">
+    <meta property="article:tag" content="Container">
+    <meta property="article:tag" content="Docker">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Docker[6] | Building Images with Dockerfile">
+  <meta name="twitter:description" content="Building Images with Dockerfile Docker can build images automatically by reading the instructions from a Dockerfile, a text file containing all the commands, in order, needed to build a given image. Dockerfiles adhere to a specific format and use a specific set of instructions.
+Write Dockerfile In this step we shall create Dockerfile. Create a Dockerfile with following content in current directory.
+cat &gt; Dockerfile &lt;&lt; EOF FROM ubuntu:18.04 RUN apt-get update &amp;&amp; apt-get install apache2 -y &amp;&amp; apt-get clean CMD [&#34;apache2ctl&#34;, &#34;-DFOREGROUND&#34;] EOF Verify the file: cat Dockerfile Above Dockerfile content describes a Debian Jessie Docker image with Apache web server installed.">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between max-w-[65ch] mx-auto px-4 md:px-0">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/img/mk_logo.jpg" alt="Kadir&#39;s Notes" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://www.karakoc.xyz/" class="text-lg font-semibold cursor-pointer">
+          Kadir&#39;s Notes
+        </a>
+        
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+        
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Docker[6] | Building Images with Dockerfile">
+  <meta itemprop="description" content="Building Images with Dockerfile Docker can build images automatically by reading the instructions from a Dockerfile, a text file containing all the commands, in order, needed to build a given image. Dockerfiles adhere to a specific format and use a specific set of instructions.
+Write Dockerfile In this step we shall create Dockerfile. Create a Dockerfile with following content in current directory.
+cat &gt; Dockerfile &lt;&lt; EOF FROM ubuntu:18.04 RUN apt-get update &amp;&amp; apt-get install apache2 -y &amp;&amp; apt-get clean CMD [&#34;apache2ctl&#34;, &#34;-DFOREGROUND&#34;] EOF Verify the file: cat Dockerfile Above Dockerfile content describes a Debian Jessie Docker image with Apache web server installed.">
+  <meta itemprop="datePublished" content="2021-07-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-10-16T00:00:00+00:00">
+  <meta itemprop="wordCount" content="471">
+  <meta itemprop="keywords" content="Container,Docker">
+
+      <header>
+        <h1 itemprop="headline">Docker[6] | Building Images with Dockerfile</h1>
+        <p class="text-sm">
+          
+            Saturday, Jul 17, 2021
+          
+
+          | <span>3 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Sunday, Oct 16, 2022
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Kadir Karakoc</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+    
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Docker[6]%20%7c%20Building%20Images%20with%20Dockerfile&amp;url=http://www.karakoc.xyz/posts/docker/d6/d6/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="" target="_blank" rel="noopener noreferrer"
+      title="Share on ">
+      <ion-icon class="group-hover:text-primary-content" name="logo-Linkedin"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <h2 id="building-images-with-dockerfile">Building Images with Dockerfile</h2>
+<p>Docker can build images automatically by reading the instructions from a Dockerfile, a text file containing all the commands, in order, needed to build a given image. Dockerfiles adhere to a specific format and use a specific set of instructions.</p>
+<h2 id="write-dockerfile">Write Dockerfile</h2>
+<p>In this step we shall create Dockerfile. Create a Dockerfile with following content in current directory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat &gt; Dockerfile <span style="color:#e6db74">&lt;&lt; EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">FROM ubuntu:18.04
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">RUN apt-get update &amp;&amp; apt-get install apache2 -y &amp;&amp; apt-get clean
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CMD [&#34;apache2ctl&#34;, &#34;-DFOREGROUND&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>Verify the file: <code>cat Dockerfile</code>
+Above Dockerfile content describes a <code>Debian Jessie</code> Docker image with Apache web server installed.</p>
+<p><code>FROM</code> indicates the base image for our build
+Each <code>RUN</code> line will be executed by Docker during the build
+Our <code>RUN</code> commands must be non-interactive. (You can‘t provide input to Docker during the build.)
+In many cases, we will add the <code>-y</code> flag to <code>apt-get</code>.</p>
+<h2 id="build-it-">Build it !</h2>
+<p>We can build a docker image by executing <code>docker build -t webserver .</code></p>
+<p>The docker build command builds an image from a Dockerfile and a context. The build’s context is the files at a specified location PATH or URL. The PATH is a directory on your local filesystem. The URL is a Git repository location.</p>
+<p>The Docker daemon runs the instructions in the Dockerfile one-by-one, committing the result of each instruction to a new image if necessary, before finally outputting the ID of your new image.</p>
+<p>View the stored images on your host:
+<code>docker images</code></p>
+<h2 id="run-an-image">Run an Image</h2>
+<p>Now we have an image created from Dockerfile, we&rsquo;ll run it.</p>
+<p><code>docker run -d -p 8080:80 --name www webserver</code></p>
+<p>Verify the output with curl:</p>
+<p><code>curl localhost:8080</code></p>
+<h2 id="build-a-webapp-image">Build a webapp image</h2>
+<p>We need to create a <code>index.html</code> file in <code>html</code> directory with following content.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;This is a title&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;Hello world!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>Enhance our existing Dockerfile with following content.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat &gt; Dockerfile <span style="color:#e6db74">&lt;&lt; EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">FROM ubuntu:18.04
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">RUN apt-get update &amp;&amp; apt-get install apache2 -y &amp;&amp; apt-get clean
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">COPY html /var/www/html
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">CMD [&#34;apache2ctl&#34;, &#34;-DFOREGROUND&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>Verify the Dockerfile: <code>cat Dockerfile</code> Verify the html file: <code>cat html/index.html</code></p>
+<p>The <code>COPY</code> instruction copies new files or directories from and adds them to the filesystem of the container at the path .</p>
+<h2 id="build-and-run-it-again">Build and Run it Again</h2>
+<p><code>docker build -t webserver .</code></p>
+<p><code>docker run -d -p 8090:80 --name www1 webserver</code></p>
+<p>Verify the updated output with curl:
+<code>curl localhost:8090</code></p>
+<h2 id="try-it-yourself">Try it yourself</h2>
+<p>Change the following things:</p>
+<ul>
+<li>Web content should contain <code>Docker is awesome!</code></li>
+<li>Dockerfile should an <code>ENTRYPOINT</code> with the default argument <code>-DFOREGROUND</code></li>
+</ul>
+<h2 id="validate">Validate</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it -p 80:80 --name my-web my-image<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># interactive shell in the container</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># verify hostname and envrionment is the id of the conainer</span>
+</span></span><span style="display:flex;"><span>hostname
+</span></span><span style="display:flex;"><span>env
+</span></span><span style="display:flex;"><span>df
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#check if apache is running</span>
+</span></span><span style="display:flex;"><span>ps -aufx
+</span></span></code></pre></div><h4 id="open-second-terminal"><strong>Open second terminal</strong></h4>
+<p>Verify if you get your HTML text <code>Docker is awesome!</code>:
+<code>curl localhost:80</code></p>
+
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 max-w-[65ch] mx-auto px-4 md:px-0 py-12">
+
+  <div>
+  
+  <p>© 2025  </p>
+  
+
+  
+  <p> </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="max-w-[65ch] mt-8 mx-auto px-4">
+  
+  
+  
+  <div>
+    <div class="mb-4 text-lg font-medium">Hello! Welcome!</div>
+
+    <div class="prose dark:prose-invert">
+      <p>This Website was created to keep notes</p>
+
+    </div>
+  </div>
+  <div class="divider divider-vertical"></div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 max-w-[65ch] mx-auto px-4 md:px-0 py-12">
+
+  <div>
+  
+  <p>© 2025  </p>
+  
+
+  
+  <p> </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+  
+    <script type="module">
+      import mediumZoom from 'https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/+esm';
+      mediumZoom('#dream-single-post-content img', {
+        background: 'oklch(var(--b1))',
+        margin: 24,
+      })
+    </script>
+  
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

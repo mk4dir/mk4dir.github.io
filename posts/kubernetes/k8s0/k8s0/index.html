@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes[0] | Nedir? |  </title>
+
+    
+
+<link rel="canonical" href="http://www.karakoc.xyz/posts/kubernetes/k8s0/k8s0/" />
+
+
+
+<meta name="author" content="Kadir Karakoc" />
+<meta name="description" content="Kubernetes&rsquo;e giriş yapmadan önce bilmemiz gereken şey Konteyner Teknolojisidir. Daha önce konteyner teknolojileriyle uğraşmış olabilirsiniz. Özellikle docker ile içli dışlı olmuş olabilirsiniz. Bu büyük bir avantaj olacak. Uğraşmadıysanız da buradaki yazı dizisinden temel docker notlarina bakabilirsiniz.
+Soldaki görselde görüleceği üzere, fiziksel sunucu üzerinde bir Hypervisor1 çalışıyor. Bu da GuestOS olarak nitelendirilen konuk işletim sistemlerinin bir çoğunun aynı makine üzerinde çalışmasını sağlıyor. Sağdaki resimde göreceğiniz üzere de bir Container Engine bulunuyor. Yani bu mimaride hypervisor&rsquo;ı aradan çıkarıyoruz diyebiliriz. Bu sayede Docker image&rsquo;larımız konteyner olarak çalışabiliyor. Bu sayede HostOS&rsquo;in kernel&rsquo;ından bağımsız olarak uygulamaların çalışır hale gelmesiyle docker teknolojisi bize yazılımları konteyner haline dönüştürerek bir host üzerindeki Docker Engine üzerinde deploy edip ölçekleyebilmemizi ve uygulamanın bir çok instance&rsquo;ını aynı anda çalıştırabilmemizi sağlıyor.
+" />
+
+
+<meta name="keywords" content="Kubernetes,K8s">
+
+
+
+<meta name="generator" content="Hugo 0.139.3">
+
+
+<meta property="og:url" content="http://www.karakoc.xyz/posts/kubernetes/k8s0/k8s0/">
+  <meta property="og:site_name" content=" ">
+  <meta property="og:title" content="Kubernetes[0] | Nedir?">
+  <meta property="og:description" content="Kubernetes’e giriş yapmadan önce bilmemiz gereken şey Konteyner Teknolojisidir. Daha önce konteyner teknolojileriyle uğraşmış olabilirsiniz. Özellikle docker ile içli dışlı olmuş olabilirsiniz. Bu büyük bir avantaj olacak. Uğraşmadıysanız da buradaki yazı dizisinden temel docker notlarina bakabilirsiniz.
+Soldaki görselde görüleceği üzere, fiziksel sunucu üzerinde bir Hypervisor1 çalışıyor. Bu da GuestOS olarak nitelendirilen konuk işletim sistemlerinin bir çoğunun aynı makine üzerinde çalışmasını sağlıyor. Sağdaki resimde göreceğiniz üzere de bir Container Engine bulunuyor. Yani bu mimaride hypervisor’ı aradan çıkarıyoruz diyebiliriz. Bu sayede Docker image’larımız konteyner olarak çalışabiliyor. Bu sayede HostOS’in kernel’ından bağımsız olarak uygulamaların çalışır hale gelmesiyle docker teknolojisi bize yazılımları konteyner haline dönüştürerek bir host üzerindeki Docker Engine üzerinde deploy edip ölçekleyebilmemizi ve uygulamanın bir çok instance’ını aynı anda çalıştırabilmemizi sağlıyor.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-10-21T00:00:00+00:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="K8s">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kubernetes[0] | Nedir?">
+  <meta name="twitter:description" content="Kubernetes’e giriş yapmadan önce bilmemiz gereken şey Konteyner Teknolojisidir. Daha önce konteyner teknolojileriyle uğraşmış olabilirsiniz. Özellikle docker ile içli dışlı olmuş olabilirsiniz. Bu büyük bir avantaj olacak. Uğraşmadıysanız da buradaki yazı dizisinden temel docker notlarina bakabilirsiniz.
+Soldaki görselde görüleceği üzere, fiziksel sunucu üzerinde bir Hypervisor1 çalışıyor. Bu da GuestOS olarak nitelendirilen konuk işletim sistemlerinin bir çoğunun aynı makine üzerinde çalışmasını sağlıyor. Sağdaki resimde göreceğiniz üzere de bir Container Engine bulunuyor. Yani bu mimaride hypervisor’ı aradan çıkarıyoruz diyebiliriz. Bu sayede Docker image’larımız konteyner olarak çalışabiliyor. Bu sayede HostOS’in kernel’ından bağımsız olarak uygulamaların çalışır hale gelmesiyle docker teknolojisi bize yazılımları konteyner haline dönüştürerek bir host üzerindeki Docker Engine üzerinde deploy edip ölçekleyebilmemizi ve uygulamanın bir çok instance’ını aynı anda çalıştırabilmemizi sağlıyor.">
+
+
+
+
+  
+
+<link rel="stylesheet" href="/css/output.min.css" />
+
+
+
+
+    
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav x-data="{ isSticky: false }"
+  x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > 30 })"
+  class="sticky top-0 z-30 mt-4 lg:mt-8 py-4"
+  :class="{ 'bg-base-100 shadow-lg dark:border-b dark:border-base-content/30': isSticky }">
+
+  
+  <div class="container flex justify-between max-w-[65ch] mx-auto px-4 md:px-0">
+  
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/img/mk_logo.jpg" alt="Kadir&#39;s Notes" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="http://www.karakoc.xyz/" class="text-lg font-semibold cursor-pointer">
+          Kadir&#39;s Notes
+        </a>
+        
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="About">
+    <ion-icon name="information-circle"></ion-icon>About</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0"
+        class="text-sm font-semibold cursor-pointer hover:underline"
+        @click="flip = !flip"
+        title="About"
+      >About</div>
+      
+      
+
+      
+      
+        
+      
+
+      
+
+      
+      
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      <div class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+          <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="All Categories">
+    <ion-icon name="grid"></ion-icon>
+    All Categories
+  </a>
+</li>
+
+
+          
+          
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="All Tags">
+    <ion-icon name="pricetags"></ion-icon>
+    All Tags
+  </a>
+</li>
+
+
+          
+
+          
+        </ul>
+      </div>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
+            
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+  <div class="hidden lg:block">
+    
+  </div>
+
+  <div class="lg:col-span-2">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      
+  <meta itemprop="name" content="Kubernetes[0] | Nedir?">
+  <meta itemprop="description" content="Kubernetes’e giriş yapmadan önce bilmemiz gereken şey Konteyner Teknolojisidir. Daha önce konteyner teknolojileriyle uğraşmış olabilirsiniz. Özellikle docker ile içli dışlı olmuş olabilirsiniz. Bu büyük bir avantaj olacak. Uğraşmadıysanız da buradaki yazı dizisinden temel docker notlarina bakabilirsiniz.
+Soldaki görselde görüleceği üzere, fiziksel sunucu üzerinde bir Hypervisor1 çalışıyor. Bu da GuestOS olarak nitelendirilen konuk işletim sistemlerinin bir çoğunun aynı makine üzerinde çalışmasını sağlıyor. Sağdaki resimde göreceğiniz üzere de bir Container Engine bulunuyor. Yani bu mimaride hypervisor’ı aradan çıkarıyoruz diyebiliriz. Bu sayede Docker image’larımız konteyner olarak çalışabiliyor. Bu sayede HostOS’in kernel’ından bağımsız olarak uygulamaların çalışır hale gelmesiyle docker teknolojisi bize yazılımları konteyner haline dönüştürerek bir host üzerindeki Docker Engine üzerinde deploy edip ölçekleyebilmemizi ve uygulamanın bir çok instance’ını aynı anda çalıştırabilmemizi sağlıyor.">
+  <meta itemprop="datePublished" content="2022-09-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-10-21T00:00:00+00:00">
+  <meta itemprop="wordCount" content="228">
+  <meta itemprop="keywords" content="Kubernetes,K8s">
+
+      <header>
+        <h1 itemprop="headline">Kubernetes[0] | Nedir?</h1>
+        <p class="text-sm">
+          
+            Monday, Sep 5, 2022
+          
+
+          | <span>2 minute read</span>
+
+          
+          | <span>Updated at
+            
+              Friday, Oct 21, 2022
+            </span>
+          
+        </p>
+
+        
+        <div class="flex justify-between">
+          
+            <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    
+      <span itemprop="name">Kadir Karakoc</span>
+    
+  
+  </span>
+</div>
+
+          
+
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+    
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=Kubernetes[0]%20%7c%20Nedir?&amp;url=http://www.karakoc.xyz/posts/kubernetes/k8s0/k8s0/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="" target="_blank" rel="noopener noreferrer"
+      title="Share on ">
+      <ion-icon class="group-hover:text-primary-content" name="logo-Linkedin"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
+
+        </div>
+      </header>
+
+      <section id="dream-single-post-content" itemprop="articleBody">
+        
+
+        <p>Kubernetes&rsquo;e giriş yapmadan önce bilmemiz gereken şey Konteyner Teknolojisidir. Daha önce konteyner teknolojileriyle uğraşmış olabilirsiniz. Özellikle <code>docker</code> ile içli dışlı olmuş olabilirsiniz. Bu büyük bir avantaj olacak. Uğraşmadıysanız da <a href="https://kadirkarakoc.com/posts/docker/dn0/" target="_blank">buradaki</a>
+ yazı dizisinden temel docker notlarina bakabilirsiniz.</p>
+<p><img src="/img/containers-vs-virtual-machines.jpg" alt="Containers-vs-Virtual-Machines"></p>
+<p>Soldaki görselde görüleceği üzere, fiziksel sunucu üzerinde bir <code>Hypervisor</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> çalışıyor. Bu da GuestOS olarak nitelendirilen konuk işletim sistemlerinin bir çoğunun aynı makine üzerinde çalışmasını sağlıyor. Sağdaki resimde göreceğiniz üzere de bir <code>Container Engine</code> bulunuyor. Yani bu mimaride hypervisor&rsquo;ı aradan çıkarıyoruz diyebiliriz. Bu sayede Docker image&rsquo;larımız konteyner olarak çalışabiliyor. Bu sayede HostOS&rsquo;in kernel&rsquo;ından bağımsız olarak uygulamaların çalışır hale gelmesiyle docker teknolojisi bize yazılımları konteyner haline dönüştürerek bir host üzerindeki Docker Engine üzerinde deploy edip ölçekleyebilmemizi ve uygulamanın bir çok instance&rsquo;ını aynı anda çalıştırabilmemizi sağlıyor.</p>
+<h2 id="kubernetes">Kubernetes</h2>
+<p>Konteyner teknolojisinin ilerlemesiyle birlikte bir çok uygulama containerized edildi ve her ölçekten şirket bu konteyner kalabalıklarıyla baş etmek zorunda kaldırlar. Bu sebepten dolayı da bir çok orkestrasyon araçları ortaya çıktı. İşte Kubernetes de bunlardan biridir. Konteynerlar üzerinde çalışan mikroservis tabanlı uygulamaların orkestrasyonunu yapan bir araç kısaca. Google tarafından ortaya çıkarılmış bir projedir. Önceki adıyla <a href="https://kubernetes.io/blog/2015/04/borg-predecessor-to-kubernetes/" target="_blank">Borg</a>
+&lsquo;dur. Daha sonrasında bu <a href="https://queue.acm.org/detail.cfm?id=2898444" target="_blank">Omega</a>
+ adında başka bir projeye evrilmiştir. Daha sonrasında opensource yapılarak bu teknoloji halka açılıyor 🥳.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Hypervisor çoklu işletim sistemlerinin aynı donanım üzerinde çalışmasını sağlayan bir kod parçasıdır. Bu kod parçası direk donanım üzerinde çalışarak fiziksel sunucumuz üzerinde birden fazla guest operating system yani konuk işletim sistemleri oluşturmamıza olanak sağlamaktadır.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+        
+      </section>
+
+      
+
+      
+    </article>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-col lg:items-end">
+    
+  </div>
+</div>
+
+
+            
+<footer class="flex justify-between items-center gap-2 max-w-[65ch] mx-auto px-4 md:px-0 py-12">
+
+  <div>
+  
+  <p>© 2025  </p>
+  
+
+  
+  <p> </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            
+            <div class="max-w-[65ch] mt-8 mx-auto px-4">
+  
+  
+  
+  <div>
+    <div class="mb-4 text-lg font-medium">Hello! Welcome!</div>
+
+    <div class="prose dark:prose-invert">
+      <p>This Website was created to keep notes</p>
+
+    </div>
+  </div>
+  <div class="divider divider-vertical"></div>
+  
+  
+
+  
+
+  
+</div>
+
+            
+
+            
+<footer class="flex justify-between items-center gap-2 max-w-[65ch] mx-auto px-4 md:px-0 py-12">
+
+  <div>
+  
+  <p>© 2025  </p>
+  
+
+  
+  <p> </p>
+  
+</div>
+
+  <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center gap-2 h-[32px] px-2 bg-base-100 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+</footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+</script>
+
+
+
+
+
+  
+
+<script src="/js/main.min.js"></script>
+
+    
+
+
+
+
+
+
+  
+    <script type="module">
+      import mediumZoom from 'https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/+esm';
+      mediumZoom('#dream-single-post-content img', {
+        background: 'oklch(var(--b1))',
+        margin: 24,
+      })
+    </script>
+  
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
