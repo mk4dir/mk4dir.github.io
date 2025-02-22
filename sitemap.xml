@@ -2,94 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://www.karakoc.xyz/</loc>
     <lastmod>2023-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://www.karakoc.xyz/posts/</loc>
     <lastmod>2023-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://www.karakoc.xyz/categories/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/k8s/</loc>
+    <loc>http://www.karakoc.xyz/tags/k8s/</loc>
     <lastmod>2022-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/kubernetes/</loc>
+    <loc>http://www.karakoc.xyz/tags/kubernetes/</loc>
     <lastmod>2022-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/kubernetes/</loc>
+    <loc>http://www.karakoc.xyz/categories/kubernetes/</loc>
     <lastmod>2022-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/kubernetes/k8s2/k8s2/</loc>
+    <loc>http://www.karakoc.xyz/posts/kubernetes/k8s2/k8s2/</loc>
     <lastmod>2022-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://www.karakoc.xyz/tags/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/kubernetes/k8s1/k8s1/</loc>
+    <loc>http://www.karakoc.xyz/posts/kubernetes/k8s1/k8s1/</loc>
     <lastmod>2022-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/kubernetes/k8s0/k8s0/</loc>
+    <loc>http://www.karakoc.xyz/posts/kubernetes/k8s0/k8s0/</loc>
     <lastmod>2022-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/gnu/linux/</loc>
+    <loc>http://www.karakoc.xyz/tags/gnu/linux/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/gnu/linux/</loc>
+    <loc>http://www.karakoc.xyz/categories/gnu/linux/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/gnu-linux/gl2/gl2/</loc>
+    <loc>http://www.karakoc.xyz/posts/gnu-linux/gl2/gl2/</loc>
     <lastmod>2023-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/gnu-linux/gl1/gl1/</loc>
+    <loc>http://www.karakoc.xyz/posts/gnu-linux/gl1/gl1/</loc>
     <lastmod>2023-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/gnu-linux/gl0/gl0/</loc>
+    <loc>http://www.karakoc.xyz/posts/gnu-linux/gl0/gl0/</loc>
     <lastmod>2023-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/container/</loc>
+    <loc>http://www.karakoc.xyz/tags/container/</loc>
     <lastmod>2022-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/docker/</loc>
+    <loc>http://www.karakoc.xyz/tags/docker/</loc>
     <lastmod>2022-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/docker/</loc>
+    <loc>http://www.karakoc.xyz/categories/docker/</loc>
     <lastmod>2022-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d11/d11/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d11/d11/</loc>
     <lastmod>2022-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d10/d10/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d10/d10/</loc>
     <lastmod>2022-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d9/d9/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d9/d9/</loc>
     <lastmod>2022-10-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d8/d8/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d8/d8/</loc>
     <lastmod>2022-10-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d7/d7/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d7/d7/</loc>
     <lastmod>2022-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d6/d6/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d6/d6/</loc>
     <lastmod>2022-10-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d5/d5/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d5/d5/</loc>
     <lastmod>2022-10-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d4/d4/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d4/d4/</loc>
     <lastmod>2022-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d3/d3/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d3/d3/</loc>
     <lastmod>2022-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d2/d2/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d2/d2/</loc>
     <lastmod>2022-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d1/d1/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d1/d1/</loc>
     <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/d0/d0/</loc>
+    <loc>http://www.karakoc.xyz/posts/docker/d0/d0/</loc>
     <lastmod>2022-10-10T00:00:00+00:00</lastmod>
   </url>
 </urlset>
